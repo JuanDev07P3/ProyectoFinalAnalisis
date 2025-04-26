@@ -1,0 +1,155 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal-analisissistemas\\proyectofinalanalisis\\controllers\\clientescontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:controllers\\clientescontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal-analisissistemas\\proyectofinalanalisis\\readme.md.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:readme.md.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal-analisissistemas\\proyectofinalanalisis\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal-analisissistemas\\proyectofinalanalisis\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal-analisissistemas\\proyectofinalanalisis\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal-analisissistemas\\proyectofinalanalisis\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal-analisissistemas\\proyectofinalanalisis\\models\\compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:models\\compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal-analisissistemas\\proyectofinalanalisis\\backendventas.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:backendventas.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "Models\\Producto.cs",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\Models\\Producto.cs",
+              "RelativeToolTip": "Models\\Producto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T06:28:40.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Compra.cs",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\Models\\Compra.cs",
+              "RelativeDocumentMoniker": "Models\\Compra.cs",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\Models\\Compra.cs",
+              "RelativeToolTip": "Models\\Compra.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T06:28:34.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\Models\\Cliente.cs",
+              "RelativeToolTip": "Models\\Cliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T06:28:30.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClientesControllers.cs",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\Controllers\\ClientesControllers.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClientesControllers.cs",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\Controllers\\ClientesControllers.cs",
+              "RelativeToolTip": "Controllers\\ClientesControllers.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T06:28:21.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "README.md.txt",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\README.md.txt",
+              "RelativeDocumentMoniker": "README.md.txt",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\README.md.txt",
+              "RelativeToolTip": "README.md.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-04-23T22:26:16.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T22:26:11.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-23T22:25:55.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BackendVentas.csproj",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\BackendVentas.csproj",
+              "RelativeDocumentMoniker": "BackendVentas.csproj",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\BackendVentas.csproj",
+              "RelativeToolTip": "BackendVentas.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-23T21:53:21.027Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
