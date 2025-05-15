@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal-analisissistemas\\proyectofinalanalisis\\sistemaventas\\backend(apis)\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal-analisissistemas\\proyectofinalanalisis\\sistemaventas\\backend(apis)\\backendventas.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:backendventas.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BackendVentas.http",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.http",
+              "RelativeDocumentMoniker": "BackendVentas.http",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.http",
+              "RelativeToolTip": "BackendVentas.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-05-13T03:53:31.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-13T03:53:21.794Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mario\\BackendVentas\\BackendVentas.csproj": {}
+    "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mario\\BackendVentas\\BackendVentas.csproj": {
+    "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mario\\BackendVentas\\BackendVentas.csproj",
+        "projectUniqueName": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj",
         "projectName": "BackendVentas",
-        "projectPath": "C:\\Users\\Mario\\BackendVentas\\BackendVentas.csproj",
-        "packagesPath": "C:\\Users\\Mario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mario\\BackendVentas\\obj\\",
+        "projectPath": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj",
+        "packagesPath": "C:\\Users\\osbel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Mario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\osbel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
