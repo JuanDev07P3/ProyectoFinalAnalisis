@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kk+DuH3uEE0=",
+  "dgSpecHash": "MdBBTRyjWJA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj",
+  "projectFilePath": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\osbel\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\osbel\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

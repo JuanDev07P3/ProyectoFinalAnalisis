@@ -1713,11 +1713,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj",
+      "projectUniqueName": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj",
       "projectName": "BackendVentas",
-      "projectPath": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj",
+      "projectPath": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj",
       "packagesPath": "C:\\Users\\osbel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\osbel\\Desktop\\proyectoFinal-AnalisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\obj\\",
+      "outputPath": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1784,7 +1784,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
