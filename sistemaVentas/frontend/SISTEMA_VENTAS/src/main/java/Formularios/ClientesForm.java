@@ -6,24 +6,252 @@ package Formularios;
 
 import Models.Cliente;
 import Service.ClienteService;
+
+import java.awt.Color;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author osbel
  */
-public class ClientesForm extends javax.swing.JFrame {
-    
-    private ClienteService clienteService = new ClienteService();
+public class ClientesForm extends javax.swing.JFrame  {
 
-    /**
-     * Creates new form ClientesForm
-     */
+    private ClienteService clienteService;
+    private boolean ignorarEventosSeleccion = false;
+    private boolean limpiandoCampos = false;
+
     public ClientesForm() {
+        clienteService = new ClienteService();
         initComponents();
+        cargarClientesEnTabla();
+        txtIdCliente.setVisible(false); // Ocultar campo ID
+        setPlaceholders();
+        agregarListeners();
+        agregarSeleccionTablaListener();
     }
+
+    private void cargarClientesEnTabla() {
+        try {
+            List<Cliente> listaClientes = clienteService.obtenerClientes();
+
+            String[] columnas = {"ID", "Nombre", "Apellido", "NIT", "Dirección", "Teléfono", "Email"};
+            Object[][] datos = new Object[listaClientes.size()][columnas.length];
+
+            for (int i = 0; i < listaClientes.size(); i++) {
+                Cliente c = listaClientes.get(i);
+                datos[i][0] = c.getId();
+                datos[i][1] = c.getNombre();
+                datos[i][2] = c.getApellido();
+                datos[i][3] = c.getNit();
+                datos[i][4] = c.getDireccion();
+                datos[i][5] = c.getTelefono();
+                datos[i][6] = c.getEmail();
+            }
+
+            javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(datos, columnas) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+            tbCliente.setModel(model);
+
+            // Ocultar columna ID
+            tbCliente.getColumnModel().getColumn(0).setMinWidth(0);
+            tbCliente.getColumnModel().getColumn(0).setMaxWidth(0);
+            tbCliente.getColumnModel().getColumn(0).setWidth(0);
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error al cargar clientes: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            ignorarEventosSeleccion = false;
+        }
+    }
+
+    private void agregarSeleccionTablaListener() {
+        tbCliente.getSelectionModel().addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting() && tbCliente.getSelectedRow() != -1 && !ignorarEventosSeleccion) {
+                int fila = tbCliente.getSelectedRow();
+                txtIdCliente.setText(tbCliente.getValueAt(fila, 0).toString());
+                txtNombre.setText(tbCliente.getValueAt(fila, 1).toString());
+                txtApellido.setText(tbCliente.getValueAt(fila, 2).toString());
+                txtNit.setText(tbCliente.getValueAt(fila, 3).toString());
+                txtDireccion.setText(tbCliente.getValueAt(fila, 4).toString());
+                txtTelefono.setText(tbCliente.getValueAt(fila, 5).toString());
+                txtEmail.setText(tbCliente.getValueAt(fila, 6).toString());
+            }
+        });
+    }
+
+    private void setPlaceholders() {
+        setPlaceholder(txtNombre, "Ingrese nombre");
+        setPlaceholder(txtApellido, "Ingrese apellido");
+        setPlaceholder(txtNit, "Ingrese NIT");
+        setPlaceholder(txtDireccion, "Ingrese dirección");
+        setPlaceholder(txtTelefono, "Ingrese teléfono");
+        setPlaceholder(txtEmail, "Ingrese email");
+    }
+
+    private void setPlaceholder(javax.swing.JTextField field, String placeholder) {
+        field.setText(placeholder);
+        field.setForeground(Color.decode("#000000"));
+        field.addFocusListener(new FocusAdapter() {
+            public void focusGained(FocusEvent evt) {
+                if (field.getText().equals(placeholder)) {
+                    field.setText("");
+                    field.setForeground(Color.BLACK);
+                }
+            }
+            public void focusLost(FocusEvent evt) {
+                if (field.getText().isEmpty()) {
+                    field.setText(placeholder);
+                    field.setForeground(Color.decode("#000000"));
+                }
+            }
+        });
+    }
+
+    private void agregarListeners() {
+        btAgregar.addActionListener(evt -> agregarCliente());
+        btEditar.addActionListener(evt -> editarCliente());
+        btEliminar.addActionListener(evt -> eliminarCliente());
+        btLimpiar.addActionListener(evt -> limpiarCampos());
+    }
+
+    private boolean validarCampos() {
+        if (limpiandoCampos) return false;
+        if (txtNombre.getText().isEmpty() || txtNombre.getText().equals("Ingrese nombre") ||
+            txtApellido.getText().isEmpty() || txtApellido.getText().equals("Ingrese apellido") ||
+            txtNit.getText().isEmpty() || txtNit.getText().equals("Ingrese NIT") ||
+            txtDireccion.getText().isEmpty() || txtDireccion.getText().equals("Ingrese dirección") ||
+            txtTelefono.getText().isEmpty() || txtTelefono.getText().equals("Ingrese teléfono") ||
+            txtEmail.getText().isEmpty() || txtEmail.getText().equals("Ingrese email")) {
+            JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
+    private void agregarCliente() {
+        if (!validarCampos()) return;
+
+        try {
+            Cliente nuevo = new Cliente();
+            nuevo.setNombre(txtNombre.getText().trim());
+            nuevo.setApellido(txtApellido.getText().trim());
+            nuevo.setNit(txtNit.getText().trim());
+            nuevo.setDireccion(txtDireccion.getText().trim());
+            nuevo.setTelefono(txtTelefono.getText().trim());
+            nuevo.setEmail(txtEmail.getText().trim());
+
+            boolean exito = clienteService.agregarCliente(nuevo);
+            if (exito) {
+                JOptionPane.showMessageDialog(this, "Cliente agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                limpiarCampos();
+                cargarClientesEnTabla();
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al agregar cliente.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error al agregar cliente: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void editarCliente() {
+        if (txtIdCliente.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Seleccione un cliente de la tabla para editar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (!validarCampos()) return;
+
+        try {
+            int idCliente = Integer.parseInt(txtIdCliente.getText());
+
+            Cliente clienteEditado = new Cliente();
+            clienteEditado.setId(idCliente);
+            clienteEditado.setNombre(txtNombre.getText().trim());
+            clienteEditado.setApellido(txtApellido.getText().trim());
+            clienteEditado.setNit(txtNit.getText().trim());
+            clienteEditado.setDireccion(txtDireccion.getText().trim());
+            clienteEditado.setTelefono(txtTelefono.getText().trim());
+            clienteEditado.setEmail(txtEmail.getText().trim());
+
+            boolean actualizado = clienteService.actualizarCliente(idCliente, clienteEditado);
+            if (actualizado) {
+                JOptionPane.showMessageDialog(this, "Cliente actualizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                limpiarCampos();
+                cargarClientesEnTabla();
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo actualizar el cliente.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error al actualizar cliente: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void eliminarCliente() {
+        if (txtIdCliente.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Seleccione un cliente de la tabla para eliminar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int confirm = JOptionPane.showConfirmDialog(this, "¿Está seguro de eliminar este cliente?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        try {
+            int idCliente = Integer.parseInt(txtIdCliente.getText());
+            boolean eliminado = clienteService.eliminarCliente(idCliente);
+            if (eliminado) {
+                JOptionPane.showMessageDialog(this, "Cliente eliminado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                limpiarCampos();
+                cargarClientesEnTabla();
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo eliminar el cliente.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "ID Cliente debe ser un número.", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error al eliminar cliente: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void limpiarCampos() {
+        limpiandoCampos = true;
+        ignorarEventosSeleccion = true;
+
+        txtIdCliente.setText("");
+        txtNombre.setText("Ingrese nombre");
+        txtNombre.setForeground(Color.decode("#000000"));
+        txtApellido.setText("Ingrese apellido");
+        txtApellido.setForeground(Color.decode("#000000"));
+        txtNit.setText("Ingrese NIT");
+        txtNit.setForeground(Color.decode("#000000"));
+        txtDireccion.setText("Ingrese dirección");
+        txtDireccion.setForeground(Color.decode("#000000"));
+        txtTelefono.setText("Ingrese teléfono");
+        txtTelefono.setForeground(Color.decode("#000000"));
+        txtEmail.setText("Ingrese email");
+        txtEmail.setForeground(Color.decode("#000000"));
+
+        tbCliente.clearSelection();
+
+        ignorarEventosSeleccion = false;
+        limpiandoCampos = false;
+    }
+
+    // Variables declaration - add txtIdCliente and btLimpiar
+    
+    // End of variables declaration
+
+    // Aquí debes incluir el método initComponents() adaptado para incluir txtIdCliente oculto y el botón Limpiar,
+    // y eliminar el botón Cargar. El diseño debe ser similar al original pero con estos cambios.
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,13 +280,14 @@ public class ClientesForm extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        btCargar = new javax.swing.JButton();
         btAgregar = new javax.swing.JButton();
         btEditar = new javax.swing.JButton();
         btEliminar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbCliente = new javax.swing.JTable();
+        txtIdCliente = new javax.swing.JButton();
+        btLimpiar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -161,28 +390,22 @@ public class ClientesForm extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtNit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel8)
-                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(txtNit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
+                        .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Acciones"));
-
-        btCargar.setText("Cargar");
-        btCargar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCargarActionPerformed(evt);
-            }
-        });
 
         btAgregar.setText("Agregar");
         btAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -210,9 +433,7 @@ public class ClientesForm extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(btCargar)
-                .addGap(18, 18, 18)
+                .addGap(105, 105, 105)
                 .addComponent(btAgregar)
                 .addGap(18, 18, 18)
                 .addComponent(btEditar)
@@ -227,8 +448,7 @@ public class ClientesForm extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAgregar)
                     .addComponent(btEditar)
-                    .addComponent(btEliminar)
-                    .addComponent(btCargar))
+                    .addComponent(btEliminar))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -262,18 +482,28 @@ public class ClientesForm extends javax.swing.JFrame {
                 .addGap(262, 262, 262))
         );
 
+        txtIdCliente.setText("jButton1");
+
+        btLimpiar.setText("Limpiar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(106, 106, 106)
+                        .addComponent(txtIdCliente))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btLimpiar))
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -281,12 +511,22 @@ public class ClientesForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtIdCliente)
+                        .addGap(10, 10, 10)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btLimpiar)
+                        .addGap(46, 46, 46)))
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
@@ -315,136 +555,34 @@ public class ClientesForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoActionPerformed
 
-    private void btCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCargarActionPerformed
-        // TODO add your handling code here:
-      DefaultTableModel model = (DefaultTableModel) tbCliente.getModel();
-model.setRowCount(0); // Limpia la tabla
-
-
-List<Cliente> clientes = clienteService.obtenerClientes();
-for (Cliente c : clientes) {
-    model.addRow(new Object[]{
-        c.getId(),
-        c.getNombre(),
-        c.getApellido(),
-        c.getNit(),
-        c.getDireccion(),
-        c.getTelefono(),
-        c.getEmail()
-    });
-}
-    }//GEN-LAST:event_btCargarActionPerformed
-
     private void btAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregarActionPerformed
         // TODO add your handling code here:
-        Cliente nuevo = new Cliente();
-nuevo.setNombre(txtNombre.getText());
-nuevo.setApellido(txtApellido.getText());
-nuevo.setNit(txtNit.getText());
-nuevo.setDireccion(txtDireccion.getText());
-nuevo.setTelefono(txtTelefono.getText());
-nuevo.setEmail(txtEmail.getText());
-
-boolean exito = clienteService.agregarCliente(nuevo);
-if (exito) {
-    JOptionPane.showMessageDialog(this, "Cliente agregado correctamente.");
-    // Recarga la tabla
-} else {
-    JOptionPane.showMessageDialog(this, "Error al agregar cliente.");
-}
+       
     }//GEN-LAST:event_btAgregarActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
         // TODO add your handling code here:
-    int fila = tbCliente.getSelectedRow();
-if (fila != -1) {
-    int id = (int) tbCliente.getValueAt(fila, 0);
-    Cliente cliente = new Cliente(
-        id,
-        (String) tbCliente.getValueAt(fila, 1),
-        (String) tbCliente.getValueAt(fila, 2),
-        (String) tbCliente.getValueAt(fila, 3),
-        (String) tbCliente.getValueAt(fila, 4),
-        (String) tbCliente.getValueAt(fila, 5),
-        (String) tbCliente.getValueAt(fila, 6)
-    );
-    // Actualiza TODOS los campos con los valores del formulario
-    cliente.setNombre(txtNombre.getText());
-    cliente.setApellido(txtApellido.getText());
-    cliente.setNit(txtNit.getText());
-    cliente.setDireccion(txtDireccion.getText());
-    cliente.setTelefono(txtTelefono.getText());
-    cliente.setEmail(txtEmail.getText());
-
-    boolean exito = clienteService.actualizarCliente(id, cliente);
-    if (exito) {
-        JOptionPane.showMessageDialog(this, "Cliente actualizado correctamente.");
-        // Recarga la tabla
-    } else {
-        JOptionPane.showMessageDialog(this, "Error al actualizar cliente.");
-    }
-}
+    
+    
+   
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
         // TODO add your handling code here:
-        int fila = tbCliente.getSelectedRow();
-        if(fila != -1){
-            int id = (int) tbCliente.getValueAt(fila, 0);
-    int confirm = JOptionPane.showConfirmDialog(this, "¿Seguro que deseas eliminar este cliente?", "Confirmar", JOptionPane.YES_NO_OPTION);
-    if (confirm == JOptionPane.YES_OPTION) {
-        boolean exito = clienteService.eliminarCliente(id);
-        if (exito) {
-            JOptionPane.showMessageDialog(this, "Cliente eliminado correctamente.");
-            // Recarga la tabla
-        } else {
-            JOptionPane.showMessageDialog(this, "Error al eliminar cliente.");
-        }
-    }
-}
+        
         
     }//GEN-LAST:event_btEliminarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClientesForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClientesForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClientesForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClientesForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ClientesForm().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAgregar;
-    private javax.swing.JButton btCargar;
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btEliminar;
+    private javax.swing.JButton btLimpiar;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
@@ -463,6 +601,7 @@ if (fila != -1) {
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JButton txtIdCliente;
     private javax.swing.JTextField txtNit;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTelefono;
