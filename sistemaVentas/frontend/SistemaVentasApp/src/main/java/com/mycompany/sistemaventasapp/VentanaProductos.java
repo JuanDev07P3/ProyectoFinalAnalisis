@@ -1,0 +1,516 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package com.mycompany.sistemaventasapp;
+
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
+/** 
+ *
+ * @author leonn
+ */
+public class VentanaProductos extends javax.swing.JFrame {
+    
+    private com.mycompany.sistemaventasapp.DashboardApp dashboardPadre;
+    private DefaultTableModel modeloTablaProductos;
+    private List<Producto> listaProductos;
+    private static final int UMBRAL_BAJO_STOCK = 5;
+
+    /**
+     * Creates new form VentanaProductos
+     */
+    public VentanaProductos() {
+        initComponents();
+        setTitle("Gestion de Productos - Sistema de Ventas");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        listaProductos = new ArrayList<>();
+        configurarTablaProductos();
+        cargarProductosInicialesDeEjemplo(); 
+        cargarProductosEnTabla();
+        verificarYNotificarBajoStock(); 
+    }
+public VentanaProductos(com.mycompany.sistemaventasapp.DashboardApp dashboardPadre) {
+        this(); // IMPORTANTE: Llama al constructor sin argumentos para que initComponents() se ejecute
+        this.dashboardPadre = dashboardPadre;
+        // No deben ir aquí initComponents(), setTitle(), etc. Ya se encargó el constructor de arriba.
+    }
+private void cargarProductosInicialesDeEjemplo() {
+        // Solo agrega los productos si la lista está vacía (para evitar duplicados si se llama más de una vez por algún motivo)
+       if (listaProductos.isEmpty()) {
+        listaProductos.add(new Producto(1, "Laptop Gamer", "Portátil potente para juegos", 1200.50, 10, "Electrónica"));
+        listaProductos.add(new Producto(2, "Mouse Inalámbrico", "Mouse ergonómico", 25.00, 50, "Periféricos"));
+        listaProductos.add(new Producto(3, "Teclado Mecánico", "Teclado RGB con switches azules", 75.99, 3, "Periféricos")); // STOCK BAJO
+        listaProductos.add(new Producto(4, "Monitor 27 pulgadas", "Monitor QHD 144Hz", 350.00, 15, "Monitores"));
+        listaProductos.add(new Producto(5, "Webcam HD", "Cámara web para videollamadas", 40.00, 1, "Periféricos"));     // STOCK MUY BAJO
+     }
+    }
+
+ private void configurarTablaProductos() {
+        String[] titulosColumnas = {"ID", "Nombre", "Descripción", "Precio", "Stock", "Categoría"};
+
+        modeloTablaProductos = new DefaultTableModel(null, titulosColumnas) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+   tablaProductos.setModel(modeloTablaProductos);
+    }
+
+    
+  private void cargarProductosEnTabla() {
+        // Limpiar la tabla antes de cargar nuevos datos
+        modeloTablaProductos.setRowCount(0);   
+    // Recorrer la lista de productos y añadirlos al modelo de la tabla
+     for (Producto producto : listaProductos) {
+            Object[] fila = new Object[6]; // 6 columnas definidas
+            fila[0] = producto.getId();
+            fila[1] = producto.getNombre();
+            fila[2] = producto.getDescripcion();
+            fila[3] = producto.getPrecio();
+            fila[4] = producto.getStock();
+            fila[5] = producto.getCategoria();
+            modeloTablaProductos.addRow(fila);
+        }
+    }
+  
+  private void verificarYNotificarBajoStock() {
+    StringBuilder mensajeBajoStock = new StringBuilder();
+    mensajeBajoStock.append("¡Advertencia de Stock Bajo!\nLos siguientes productos necesitan ser reabastecidos:\n\n");
+    boolean hayProductosBajoStock = false;
+
+    for (Producto producto : listaProductos) {
+        if (producto.getStock() <= UMBRAL_BAJO_STOCK) {
+            mensajeBajoStock.append("- ").append(producto.getNombre())
+                            .append(" (ID: ").append(producto.getId())
+                            .append(") - Stock Actual: ").append(producto.getStock())
+                            .append("\n");
+            hayProductosBajoStock = true;
+        }
+    }
+
+    if (hayProductosBajoStock) {
+        JOptionPane.showMessageDialog(this,
+                mensajeBajoStock.toString(),
+                "Notificación de Stock",
+                JOptionPane.WARNING_MESSAGE);
+    } else {
+        // Opcional: Mostrar un mensaje si todo el stock está bien
+        // JOptionPane.showMessageDialog(this,
+        //         "Todos los productos tienen stock suficiente.",
+        //         "Estado de Stock",
+        //         JOptionPane.INFORMATION_MESSAGE);
+    }
+}
+          /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        panelPrincipalProductos = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        scrollTablaProductos = new javax.swing.JScrollPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaProductos = new javax.swing.JTable();
+        btnNuevoProducto = new javax.swing.JButton();
+        btnEditarProducto = new javax.swing.JButton();
+        btnEliminarProducto = new javax.swing.JButton();
+        btnActualizarTabla = new javax.swing.JButton();
+        btnVolverDashboard = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtFiltroBusqueda = new javax.swing.JTextField();
+        btnFiltrar = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        panelPrincipalProductos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel1.setText("Listado de Productos");
+
+        tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaProductos);
+
+        scrollTablaProductos.setViewportView(jScrollPane1);
+
+        btnNuevoProducto.setText("NUEVO PRODUCTO");
+        btnNuevoProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoProductoActionPerformed(evt);
+            }
+        });
+
+        btnEditarProducto.setText("EDITAR PRODUCTO");
+        btnEditarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarProductoActionPerformed(evt);
+            }
+        });
+
+        btnEliminarProducto.setText("ELIMINAR PRODUCTO");
+        btnEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarProductoActionPerformed(evt);
+            }
+        });
+
+        btnActualizarTabla.setText("ACTUALIZAR TABLA");
+        btnActualizarTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarTablaActionPerformed(evt);
+            }
+        });
+
+        btnVolverDashboard.setText("MENU PRINCIPAL");
+        btnVolverDashboard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverDashboardActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("BUSCAR");
+
+        btnFiltrar.setText("Filtrar");
+        btnFiltrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFiltrarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(638, 638, 638)
+                            .addComponent(panelPrincipalProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(25, 25, 25)
+                            .addComponent(scrollTablaProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 847, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(76, 76, 76)
+                            .addComponent(btnNuevoProducto)
+                            .addGap(46, 46, 46)
+                            .addComponent(btnEditarProducto)
+                            .addGap(48, 48, 48)
+                            .addComponent(btnEliminarProducto)
+                            .addGap(64, 64, 64)
+                            .addComponent(btnActualizarTabla))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(105, 105, 105)
+                            .addComponent(btnVolverDashboard)
+                            .addGap(45, 45, 45)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtFiltroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addComponent(btnFiltrar)))
+                .addContainerGap(121, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVolverDashboard)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(panelPrincipalProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnNuevoProducto)
+                            .addComponent(btnEditarProducto)
+                            .addComponent(btnEliminarProducto))
+                        .addGap(1, 1, 1))
+                    .addComponent(btnActualizarTabla, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFiltroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFiltrar))
+                .addGap(18, 18, 18)
+                .addComponent(scrollTablaProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVolverDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverDashboardActionPerformed
+        if (dashboardPadre != null) { // Asegurarse de que tenemos una referencia al Dashboard
+            dashboardPadre.setVisible(true);
+        }
+        this.dispose();                 
+    }//GEN-LAST:event_btnVolverDashboardActionPerformed
+
+    private void btnActualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaActionPerformed
+     cargarProductosEnTabla();
+    }//GEN-LAST:event_btnActualizarTablaActionPerformed
+
+    private void btnNuevoProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoProductoActionPerformed
+      DialogoNuevoProducto dialogo = new DialogoNuevoProducto(this, true);
+
+    // Mostrar el diálogo. La ejecución se pausará aquí hasta que el diálogo se cierre.
+    dialogo.setVisible(true); 
+
+    // Cuando el diálogo se cierra, recuperamos el producto
+    Producto productoNuevo = dialogo.getProducto();
+
+    if (productoNuevo != null) {
+        // Si el usuario guardó un producto, lo añadimos a nuestra lista y a la tabla
+        listaProductos.add(productoNuevo);
+
+        // Opcional: Mostrar un mensaje de éxito
+        javax.swing.JOptionPane.showMessageDialog(this, 
+                "Producto '" + productoNuevo.getNombre() + "' agregado exitosamente.", 
+                "Producto Agregado", 
+                javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+           // ¡IMPORTANTE! Vuelve a cargar todos los productos en la tabla para que se actualice visualmente
+        cargarProductosEnTabla(); // <-- ESTA LÍNEA DEBE ESTAR AQUÍ
+    } else {
+        // Si el usuario canceló, no hacemos nada o mostramos un mensaje (opcional)
+        // javax.swing.JOptionPane.showMessageDialog(this, "Operación de agregar producto cancelada.", "Cancelado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+    }//GEN-LAST:event_btnNuevoProductoActionPerformed
+
+    private void btnEditarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProductoActionPerformed
+ int filaSeleccionada = tablaProductos.getSelectedRow(); // Obtener la fila seleccionada
+
+    if (filaSeleccionada == -1) {
+        // Si no hay ninguna fila seleccionada, mostrar un mensaje de advertencia
+        javax.swing.JOptionPane.showMessageDialog(this,
+                "Por favor, seleccione un producto de la tabla para editar.",
+                "Producto No Seleccionado",
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+        return; // Salir del método
+    }
+
+    // Obtener el ID del producto de la fila seleccionada en la tabla
+    // Asumiendo que la columna ID es la primera (columna 0)
+    int idProductoAEditar = (int) modeloTablaProductos.getValueAt(filaSeleccionada, 0);
+
+    // Buscar el objeto Producto en nuestra lista de productos por su ID
+    Producto productoOriginal = null;
+    for (Producto p : listaProductos) {
+        if (p.getId() == idProductoAEditar) {
+            productoOriginal = p;
+            break;
+        }
+    }
+
+    if (productoOriginal != null) {
+        // Crear una instancia del diálogo de edición, pasándole el producto original
+        DialogoEditarProducto dialogoEdicion = new DialogoEditarProducto(this, true, productoOriginal);
+
+        // Mostrar el diálogo. La ejecución se pausará aquí.
+        dialogoEdicion.setVisible(true);
+
+        // Cuando el diálogo se cierra, recuperamos el producto modificado
+        Producto productoActualizado = dialogoEdicion.getProductoModificado();
+
+        if (productoActualizado != null) {
+            // Si el usuario guardó cambios, actualizamos el producto en la lista
+            // En un sistema real, aquí actualizarías en la base de datos o API.
+
+            // Encontramos el índice del producto original en la lista
+            int indice = listaProductos.indexOf(productoOriginal); 
+            if (indice != -1) {
+                listaProductos.set(indice, productoActualizado); // Reemplazamos el producto
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Producto '" + productoActualizado.getNombre() + "' actualizado exitosamente.",
+                        "Producto Actualizado",
+                        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                // Refrescar la tabla para mostrar los cambios
+                cargarProductosEnTabla();
+            }
+        } else {
+            // El usuario canceló la edición
+            // javax.swing.JOptionPane.showMessageDialog(this, "Edición de producto cancelada.", "Cancelado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "No se pudo encontrar el producto seleccionado para editar.",
+            "Error Interno",
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+    }        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarProductoActionPerformed
+
+    private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
+    int filaSeleccionada = tablaProductos.getSelectedRow(); // Obtener la fila seleccionada
+
+    if (filaSeleccionada == -1) {
+        // Si no hay ninguna fila seleccionada, mostrar un mensaje de advertencia
+        javax.swing.JOptionPane.showMessageDialog(this,
+                "Por favor, seleccione un producto de la tabla para eliminar.",
+                "Producto No Seleccionado",
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+        return; // Salir del método
+    }
+
+    // Obtener el ID del producto de la fila seleccionada en la tabla
+    // Asumiendo que la columna ID es la primera (columna 0)
+    int idProductoAEliminar = (int) modeloTablaProductos.getValueAt(filaSeleccionada, 0);
+    String nombreProductoAEliminar = (String) modeloTablaProductos.getValueAt(filaSeleccionada, 1); // Obtener el nombre para el mensaje de confirmación
+
+    // Pedir confirmación al usuario antes de eliminar
+    int confirmacion = javax.swing.JOptionPane.showConfirmDialog(this,
+            "¿Está seguro de que desea eliminar el producto: " + nombreProductoAEliminar + " (ID: " + idProductoAEliminar + ")?",
+            "Confirmar Eliminación",
+            javax.swing.JOptionPane.YES_NO_OPTION,
+            javax.swing.JOptionPane.WARNING_MESSAGE);
+
+    if (confirmacion == javax.swing.JOptionPane.YES_OPTION) {
+        // Si el usuario confirma, procedemos a eliminar
+
+        // Buscar el producto en nuestra lista y eliminarlo
+        Producto productoAEliminar = null;
+        for (Producto p : listaProductos) {
+            if (p.getId() == idProductoAEliminar) {
+                productoAEliminar = p;
+                break;
+            }
+        }
+
+        if (productoAEliminar != null) {
+            listaProductos.remove(productoAEliminar); // Eliminar de la lista en memoria
+
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Producto '" + nombreProductoAEliminar + "' eliminado exitosamente.",
+                    "Producto Eliminado",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            // Refrescar la tabla para que ya no muestre el producto eliminado
+            cargarProductosEnTabla();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error: No se pudo encontrar el producto seleccionado en la lista.",
+                    "Error de Eliminación",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    }//GEN-LAST:event_btnEliminarProductoActionPerformed
+
+    private void btnFiltrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarActionPerformed
+    String textoFiltro = txtFiltroBusqueda.getText().toLowerCase(); // Obtener el texto del campo de búsqueda y convertir a minúsculas
+
+    // Limpiar la tabla antes de mostrar los resultados filtrados
+    modeloTablaProductos.setRowCount(0);
+
+    // Si el campo de filtro está vacío, cargar todos los productos
+    if (textoFiltro.isEmpty()) {
+        cargarProductosEnTabla(); // Este método ya carga todos los productos de listaProductos
+        return; // Salir del método
+    }
+
+    // Recorrer la lista completa de productos para aplicar el filtro
+    for (Producto producto : listaProductos) {
+        // Puedes filtrar por diferentes campos. Aquí, por nombre o descripción.
+        // Convierte también el nombre y la descripción del producto a minúsculas para una búsqueda sin distinción de mayúsculas/minúsculas.
+        boolean coincide = producto.getNombre().toLowerCase().contains(textoFiltro) ||
+                           producto.getDescripcion().toLowerCase().contains(textoFiltro) ||
+                           producto.getCategoria().toLowerCase().contains(textoFiltro); // También por categoría
+
+        if (coincide) {
+            // Si el producto coincide con el filtro, añadirlo a la tabla
+            Object[] fila = new Object[6];
+            fila[0] = producto.getId();
+            fila[1] = producto.getNombre();
+            fila[2] = producto.getDescripcion();
+            fila[3] = producto.getPrecio();
+            fila[4] = producto.getStock();
+            fila[5] = producto.getCategoria();
+            modeloTablaProductos.addRow(fila);
+        }
+    }
+
+    // Opcional: Si no se encuentran resultados
+    if (modeloTablaProductos.getRowCount() == 0 && !textoFiltro.isEmpty()) {
+         javax.swing.JOptionPane.showMessageDialog(this,
+            "No se encontraron productos que coincidan con su búsqueda.",
+            "Sin Resultados",
+            javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+    }//GEN-LAST:event_btnFiltrarActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VentanaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VentanaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VentanaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VentanaProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new VentanaProductos().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizarTabla;
+    private javax.swing.JButton btnEditarProducto;
+    private javax.swing.JButton btnEliminarProducto;
+    private javax.swing.JButton btnFiltrar;
+    private javax.swing.JButton btnNuevoProducto;
+    private javax.swing.JButton btnVolverDashboard;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel panelPrincipalProductos;
+    private javax.swing.JScrollPane scrollTablaProductos;
+    private javax.swing.JTable tablaProductos;
+    private javax.swing.JTextField txtFiltroBusqueda;
+    // End of variables declaration//GEN-END:variables
+}
