@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal- analisissistemas\\proyectofinalanalisis\\sistemaventas\\backend(apis)\\controllers\\clientescontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:controllers\\clientescontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal- analisissistemas\\proyectofinalanalisis\\sistemaventas\\backend(apis)\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal- analisissistemas\\proyectofinalanalisis\\sistemaventas\\backend(apis)\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal- analisissistemas\\proyectofinalanalisis\\sistemaventas\\backend(apis)\\backendventas.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:backendventas.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal- analisissistemas\\proyectofinalanalisis\\sistemaventas\\backend(apis)\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal- analisissistemas\\proyectofinalanalisis\\sistemaventas\\backend(apis)\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal- analisissistemas\\proyectofinalanalisis\\sistemaventas\\backend(apis)\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\osbel\\desktop\\proyectofinal- analisissistemas\\proyectofinalanalisis\\sistemaventas\\backend(apis)\\backendventas.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:backendventas.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,78 +27,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Cliente.cs",
-              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\Models\\Cliente.cs",
-              "RelativeDocumentMoniker": "Models\\Cliente.cs",
-              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\Models\\Cliente.cs",
-              "RelativeToolTip": "Models\\Cliente.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAtAAAAAAAAAA==",
+              "Title": "ClientesControllers.cs",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\Controllers\\ClientesControllers.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClientesControllers.cs",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\Controllers\\ClientesControllers.cs",
+              "RelativeToolTip": "Controllers\\ClientesControllers.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAgwEYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T18:58:59.713Z",
+              "WhenOpened": "2025-05-31T18:43:16.606Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\Program.cs",
-              "RelativeToolTip": "Program.cs",
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\Models\\Cliente.cs",
+              "RelativeToolTip": "Models\\Cliente.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T16:38:30.935Z"
+              "WhenOpened": "2025-05-31T18:43:11.287Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BackendVentas",
-              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj",
-              "RelativeDocumentMoniker": "BackendVentas.csproj",
-              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.csproj",
-              "RelativeToolTip": "BackendVentas.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-20T16:38:16.762Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\appsettings.Development.json",
-              "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-20T16:36:37.049Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-20T16:36:00.947Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BackendVentas.http",
-              "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.http",
-              "RelativeDocumentMoniker": "BackendVentas.http",
-              "ToolTip": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\BackendVentas.http",
-              "RelativeToolTip": "BackendVentas.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-05-13T03:53:31.32Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\osbel\\Desktop\\proyectoFinal- analisisSistemas\\ProyectoFinalAnalisis\\sistemaVentas\\backend(APIs)\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -122,7 +60,8 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-13T03:53:21.794Z"
+              "WhenOpened": "2025-05-13T03:53:21.794Z",
+              "EditorCaption": ""
             }
           ]
         }
