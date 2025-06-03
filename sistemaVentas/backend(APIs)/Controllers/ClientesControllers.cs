@@ -51,6 +51,82 @@ namespace BackendVentas.Controllers
                 return StatusCode(500, new { mensaje = "Error al obtener los clientes", detalle = ex.Message });
             }
         }
+        // GET: api/clientes/{id}
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            try
+            {
+                using SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("ConexionSQL"));
+                conn.Open();
+
+                string query = "SELECT * FROM Clientes WHERE Id = @Id";
+                using SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                using SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    Cliente cliente = new Cliente
+                    {
+                        Id = (int)reader["Id"],
+                        Nombre = reader["Nombre"]?.ToString() ?? string.Empty,
+                        Apellido = reader["Apellido"]?.ToString() ?? string.Empty,
+                        NIT = reader["NIT"]?.ToString() ?? string.Empty,
+                        Direccion = reader["Direccion"]?.ToString(),
+                        Telefono = reader["Telefono"]?.ToString(),
+                        email = reader["email"]?.ToString()
+                    };
+                    return Ok(cliente);
+                }
+                else
+                {
+                    return NotFound(new { mensaje = "Cliente no encontrado." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { mensaje = "Error al obtener el cliente", detalle = ex.Message });
+            }
+        }
+        // GET: api/clientes/search?nit={nit}
+        [HttpGet("search")]
+        public IActionResult SearchByNIT([FromQuery] string nit)
+        {
+            try
+            {
+                using SqlConnection conn = new SqlConnection(_configuration.GetConnectionString("ConexionSQL"));
+                conn.Open();
+
+                string query = "SELECT * FROM Clientes WHERE NIT = @NIT";
+                using SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@NIT", nit);
+
+                using SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    var cliente = new Cliente
+                    {
+                        Id = (int)reader["Id"],
+                        Nombre = reader["Nombre"]?.ToString() ?? string.Empty,
+                        Apellido = reader["Apellido"]?.ToString() ?? string.Empty,
+                        NIT = reader["NIT"]?.ToString() ?? string.Empty,
+                        Direccion = reader["Direccion"]?.ToString(),
+                        Telefono = reader["Telefono"]?.ToString(),
+                        email = reader["email"]?.ToString()
+                    };
+                    return Ok(cliente);
+                }
+                else
+                {
+                    return NotFound(new { mensaje = "Cliente no encontrado." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { mensaje = "Error al buscar el cliente", detalle = ex.Message });
+            }
+        }
 
         // POST: api/clientes
         [HttpPost]
