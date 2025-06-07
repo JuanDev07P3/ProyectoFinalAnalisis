@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using BackendVentas.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackendVentas.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ClientesController : ControllerBase

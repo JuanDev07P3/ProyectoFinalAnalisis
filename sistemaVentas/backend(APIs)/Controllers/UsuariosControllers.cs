@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using BackendVentas.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackendVentas.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UsuariosController : ControllerBase
@@ -171,6 +173,7 @@ namespace BackendVentas.Controllers
             }
         }
         // POST: api/usuarios/login
+        [AllowAnonymous]
         [HttpPost("login")]
         public IActionResult Login([FromBody] Login login)
         {

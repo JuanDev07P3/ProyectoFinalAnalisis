@@ -143,12 +143,14 @@ public class MenuPrincipalForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
         salidaBoton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         salidaBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sesion.png"))); // NOI18N
         salidaBoton.setText("Cerrar Sesion");
+        salidaBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         salidaBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salidaBotonActionPerformed(evt);
@@ -161,48 +163,54 @@ public class MenuPrincipalForm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(386, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(157, 157, 157)
                 .addComponent(jLabel1)
-                .addGap(240, 240, 240)
+                .addContainerGap(290, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(salidaBoton)
-                .addGap(24, 24, 24))
+                .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(salidaBoton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jLabel1)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
+                .addComponent(salidaBoton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         menuMantenimiento.setBackground(new java.awt.Color(102, 102, 102));
         menuMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/mantenimiento.png"))); // NOI18N
         menuMantenimiento.setText("MANTENIMIENTO");
         menuMantenimiento.setAlignmentX(0.9F);
         menuMantenimiento.setAlignmentY(0.9F);
+        menuMantenimiento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuMantenimiento.setMargin(new java.awt.Insets(5, 11, 3, 11));
 
         menuItemUsuarios.setBackground(new java.awt.Color(204, 204, 204));
         menuItemUsuarios.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         menuItemUsuarios.setText("Gestionar Usuarios");
+        menuItemUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuMantenimiento.add(menuItemUsuarios);
 
         menuItemProductos.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         menuItemProductos.setText("Gestionar Productos");
+        menuItemProductos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuMantenimiento.add(menuItemProductos);
 
         menuItemCategorias.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         menuItemCategorias.setText("Gestionar Categorías");
+        menuItemCategorias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuMantenimiento.add(menuItemCategorias);
 
         menuItemClientes.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         menuItemClientes.setText("Gestionar Clientes");
+        menuItemClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemClientesActionPerformed(evt);
@@ -216,14 +224,17 @@ public class MenuPrincipalForm extends javax.swing.JFrame {
         menuProcesos.setText("Procesos");
         menuProcesos.setAlignmentX(0.9F);
         menuProcesos.setAlignmentY(0.9F);
+        menuProcesos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuProcesos.setMargin(new java.awt.Insets(6, 11, 3, 11));
 
         menuItemVentas.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         menuItemVentas.setText("Realizar Venta");
+        menuItemVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuProcesos.add(menuItemVentas);
 
         menuItemDetalleCompras.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         menuItemDetalleCompras.setText("Ver Detalles de Compras");
+        menuItemDetalleCompras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItemDetalleCompras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItemDetalleComprasActionPerformed(evt);
@@ -234,19 +245,6 @@ public class MenuPrincipalForm extends javax.swing.JFrame {
         jMenuBar1.add(menuProcesos);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

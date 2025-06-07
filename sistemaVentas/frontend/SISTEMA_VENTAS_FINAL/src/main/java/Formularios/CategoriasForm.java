@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Formularios;
-import Models.CATEGORIA;
+import Models.Categoria;
 import Service.CATEGORIAservice;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -37,10 +37,10 @@ public class CategoriasForm extends javax.swing.JFrame {
         TblCategorias.setModel(tableModel);
     }
     private void cargarCategorias() {
-        List<CATEGORIA> categorias = categoriaService.obtenerCategoria();
+        List<Categoria> categorias = categoriaService.obtenerCategoria();
         tableModel.setRowCount(0); // Limpiar tabla
         if (categorias != null) {
-            for (CATEGORIA c : categorias) {
+            for (Categoria c : categorias) {
                 tableModel.addRow(new Object[]{c.getId(), c.getNombre(), c.getDescripcion()});
             }
         }
@@ -64,7 +64,7 @@ public class CategoriasForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
                 return;
             }
-            CATEGORIA c = new CATEGORIA(0, nombre, descripcion);
+            Categoria c = new Categoria(0, nombre, descripcion);
             boolean exito = categoriaService.agregarCategoria(c);
             if (exito) {
                 JOptionPane.showMessageDialog(this, "Categoría agregada correctamente.");
@@ -87,7 +87,7 @@ public class CategoriasForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
                 return;
             }
-            CATEGORIA c = new CATEGORIA(selectedCategoriaId, nombre, descripcion);
+            Categoria c = new Categoria(selectedCategoriaId, nombre, descripcion);
             boolean exito = categoriaService.actualizarCategoria(selectedCategoriaId, c);
             if (exito) {
                 JOptionPane.showMessageDialog(this, "Categoría actualizada correctamente.");
@@ -152,6 +152,7 @@ public class CategoriasForm extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblCategorias = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -308,6 +309,13 @@ public class CategoriasForm extends javax.swing.JFrame {
                 .addGap(0, 16, Short.MAX_VALUE))
         );
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -324,13 +332,20 @@ public class CategoriasForm extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(25, 538, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(65, 65, 65))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -376,6 +391,13 @@ public class CategoriasForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+Menu menu = new Menu();
+menu.setLocationRelativeTo(null);
+menu.setVisible(true);
+this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -417,6 +439,7 @@ public class CategoriasForm extends javax.swing.JFrame {
     private javax.swing.JButton btEditar;
     private javax.swing.JButton btEliminar;
     private javax.swing.JButton btLimpiar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

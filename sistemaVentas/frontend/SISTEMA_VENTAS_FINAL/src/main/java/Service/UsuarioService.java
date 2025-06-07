@@ -26,6 +26,7 @@ public class UsuarioService {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
+            conn.setRequestProperty("Authorization", "Bearer " + TokenAPI.getToken()); // <-- TOKEN
 
             if (conn.getResponseCode() != 200) {
                 throw new RuntimeException("Error HTTP: " + conn.getResponseCode());
@@ -55,6 +56,7 @@ public class UsuarioService {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
+            conn.setRequestProperty("Authorization", "Bearer " + TokenAPI.getToken());
 
             if (conn.getResponseCode() != 200) {
                 return null;
@@ -84,6 +86,7 @@ public class UsuarioService {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Authorization", "Bearer " + TokenAPI.getToken());
             conn.setDoOutput(true);
 
             Gson gson = new Gson();
@@ -110,6 +113,7 @@ public class UsuarioService {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("PUT");
             conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Authorization", "Bearer " + TokenAPI.getToken());
             conn.setDoOutput(true);
 
             Gson gson = new Gson();
@@ -136,6 +140,7 @@ public class UsuarioService {
             URL url = new URL(API_URL + "/" + id);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("DELETE");
+             conn.setRequestProperty("Authorization", "Bearer " + TokenAPI.getToken());
             int responseCode = conn.getResponseCode();
             conn.disconnect();
             return responseCode == HttpURLConnection.HTTP_NO_CONTENT || responseCode == HttpURLConnection.HTTP_OK;

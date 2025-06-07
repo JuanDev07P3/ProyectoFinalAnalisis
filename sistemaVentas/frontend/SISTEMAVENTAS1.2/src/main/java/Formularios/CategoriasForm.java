@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Formularios;
-import Models.CATEGORIA;
-import Service.CATEGORIAservice;
+import Models.Categoria;
+import Service.Categoriaervice;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class CategoriasForm extends javax.swing.JFrame {
 
-    private CATEGORIAservice categoriaService;
+    private Categoriaervice categoriaService;
     private DefaultTableModel tableModel;
     private int selectedCategoriaId = -1;
     /**
@@ -22,7 +22,7 @@ public class CategoriasForm extends javax.swing.JFrame {
      */
     public CategoriasForm() {
         initComponents();
-        categoriaService = new CATEGORIAservice();
+        categoriaService = new Categoriaervice();
         configurarTabla();
         cargarCategorias();
         agregarEventos();
@@ -37,10 +37,10 @@ public class CategoriasForm extends javax.swing.JFrame {
         TblCategorias.setModel(tableModel);
     }
     private void cargarCategorias() {
-        List<CATEGORIA> categorias = categoriaService.obtenerCategoria();
+        List<Categoria> categorias = categoriaService.obtenerCategoria();
         tableModel.setRowCount(0); // Limpiar tabla
         if (categorias != null) {
-            for (CATEGORIA c : categorias) {
+            for (Categoria c : categorias) {
                 tableModel.addRow(new Object[]{c.getId(), c.getNombre(), c.getDescripcion()});
             }
         }
@@ -64,7 +64,7 @@ public class CategoriasForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
                 return;
             }
-            CATEGORIA c = new CATEGORIA(0, nombre, descripcion);
+            Categoria c = new Categoria(0, nombre, descripcion);
             boolean exito = categoriaService.agregarCategoria(c);
             if (exito) {
                 JOptionPane.showMessageDialog(this, "Categoría agregada correctamente.");
@@ -87,7 +87,7 @@ public class CategoriasForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
                 return;
             }
-            CATEGORIA c = new CATEGORIA(selectedCategoriaId, nombre, descripcion);
+            Categoria c = new Categoria(selectedCategoriaId, nombre, descripcion);
             boolean exito = categoriaService.actualizarCategoria(selectedCategoriaId, c);
             if (exito) {
                 JOptionPane.showMessageDialog(this, "Categoría actualizada correctamente.");

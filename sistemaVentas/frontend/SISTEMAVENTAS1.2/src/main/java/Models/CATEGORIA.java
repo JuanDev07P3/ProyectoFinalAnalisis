@@ -8,14 +8,14 @@ package Models;
  *
  * @author osbel
  */
-public class CATEGORIA {
+public class Categoria {
     private int id;
     private String nombre;
     private String descripcion;
     
-    public CATEGORIA () {};
+    public Categoria () {};
 
-    public CATEGORIA(int id, String nombre, String descripcion) {
+    public Categoria(int id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;

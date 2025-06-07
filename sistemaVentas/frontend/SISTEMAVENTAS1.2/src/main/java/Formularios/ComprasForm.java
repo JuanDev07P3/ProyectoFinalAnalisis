@@ -793,6 +793,7 @@ tbCompra.getSelectionModel().addListSelectionListener(e -> {
     detalleForm.setLocationRelativeTo(this);
 
     detalleForm.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btGenerarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGenerarFacturaActionPerformed

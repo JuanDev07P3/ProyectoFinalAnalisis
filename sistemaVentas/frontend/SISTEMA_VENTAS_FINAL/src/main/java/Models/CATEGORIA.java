@@ -1,21 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Models;
 
 /**
  *
  * @author osbel
  */
-public class CATEGORIA {
+public class Categoria {
     private int id;
     private String nombre;
     private String descripcion;
     
-    public CATEGORIA () {};
+    public Categoria () {}
 
-    public CATEGORIA(int id, String nombre, String descripcion) {
+    public Categoria(int id, String nombre, String descripcion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -44,5 +40,11 @@ public class CATEGORIA {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
+    // Este método es CLAVE para que se muestre el nombre en el JComboBox
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }
+

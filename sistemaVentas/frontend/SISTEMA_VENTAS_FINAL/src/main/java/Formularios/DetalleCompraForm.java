@@ -177,7 +177,10 @@ tablaDetalleCompra.getColumnModel().getColumn(0).setPreferredWidth(0);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btVolverCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVolverCompraActionPerformed
-        // TODO add your handling code here:
+ComprasForm co = new ComprasForm();
+co.setLocationRelativeTo(null);
+co.setVisible(true);
+this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_btVolverCompraActionPerformed
 
     /**

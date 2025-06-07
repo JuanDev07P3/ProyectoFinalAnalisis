@@ -2,7 +2,7 @@ package Formularios; // O el nombre de tu paquete
 
 // Imports de Java Swing y otros necesarios
 
-import Models.CATEGORIA;
+import Models.Categoria;
 import Models.Producto;
 import Service.CATEGORIAservice;
 import Service.ProductoService;
@@ -74,9 +74,9 @@ public class VentanaProducto extends javax.swing.JFrame {
         if (cmbCategoria == null) { logger.severe("cmbCategoria es null en cargarCategoriasDesdeAPI"); return; }
         cmbCategoria.removeAllItems();
         try {
-            List<CATEGORIA> categorias = categoriaService.obtenerTodasLasCategorias();
+            List<Categoria> categorias = categoriaService.obtenerTodasLasCategorias();
             if (categorias != null && !categorias.isEmpty()) {
-                for (CATEGORIA cat : categorias) {
+                for (Categoria cat : categorias) {
                     cmbCategoria.addItem(cat.toString()); // Usa Categoria.toString() -> "ID:Nombre"
                 }
             } else {
@@ -95,21 +95,40 @@ public class VentanaProducto extends javax.swing.JFrame {
      * Carga la lista de productos desde la API y la muestra en la tabla.
      */
     private void cargarProductosDesdeAPI() {
-        if (modeloTablaProductos == null) { logger.severe("modeloTablaProductos es null en cargarProductosDesdeAPI"); return; }
-        modeloTablaProductos.setRowCount(0); // Limpia la tabla
-        List<Producto> productosDeAPI = productoService.obtenerTodosLosProductos(); // Usa el servicio
-        if (productosDeAPI != null && !productosDeAPI.isEmpty()) {
-            for (Producto prod : productosDeAPI) {
-                modeloTablaProductos.addRow(new Object[]{
-                    prod.getId(), prod.getNombre(), prod.getDescripcion(),
-                    prod.getPrecio(), prod.getStock(), prod.getIdCategoria(), prod.getMarca()
-                });
-            }
-        } else {
-             System.out.println("No se cargaron productos desde la API o la lista está vacía (puede ser normal si no hay datos).");
-        }
+  if (modeloTablaProductos == null) {
+        logger.severe("modeloTablaProductos es null en cargarProductosDesdeAPI");
+        return;
     }
 
+    modeloTablaProductos.setRowCount(0); // Limpia la tabla
+
+    List<Producto> productosDeAPI = productoService.obtenerTodosLosProductos();
+
+    if (productosDeAPI != null && !productosDeAPI.isEmpty()) {
+        for (Producto prod : productosDeAPI) {
+            int idCategoria = 0;
+
+            try {
+                // Aquí intentamos obtener el idCategoria como entero directamente
+                idCategoria = Integer.parseInt(String.valueOf(prod.getIdCategoria()));
+            } catch (NumberFormatException e) {
+                logger.warning("No se pudo convertir idCategoria a entero: " + prod.getIdCategoria());
+            }
+
+            modeloTablaProductos.addRow(new Object[]{
+                prod.getId(),
+                prod.getNombre(),
+                prod.getDescripcion(),
+                prod.getPrecio(),
+                prod.getStock(),
+                idCategoria,
+                prod.getMarca()
+            });
+        }
+    } else {
+        System.out.println("No se cargaron productos desde la API o la lista está vacía (puede ser normal si no hay datos).");
+    }
+}
     // El método cargarDatosSimuladosInicialesEnTabla() ya no es necesario. Puedes eliminarlo.
     // El método refrescarContenidoTablaProductos() ya no es necesario, su función la cumple cargarProductosDesdeAPI(). Puedes eliminarlo.
 
@@ -305,7 +324,7 @@ public class VentanaProducto extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProductos = new javax.swing.JTable();
-        menuPrincipal = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -492,13 +511,13 @@ public class VentanaProducto extends javax.swing.JFrame {
         tblProductos.setBackground(new java.awt.Color(153, 153, 153));
         tblProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre", "Descripcion ", "Precio", "Stock", "IDCategoria", "Marca"
             }
         ));
         jScrollPane1.setViewportView(tblProductos);
@@ -519,26 +538,30 @@ public class VentanaProducto extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        menuPrincipal.setText("MENU PRINCIPAL");
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(430, 430, 430)
-                .addComponent(menuPrincipal))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(93, 93, 93))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -546,9 +569,7 @@ public class VentanaProducto extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(menuPrincipal)))
+                    .addComponent(jButton1))
                 .addGap(30, 30, 30)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
@@ -572,6 +593,13 @@ public class VentanaProducto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+Menu menu = new Menu();
+menu.setLocationRelativeTo(null);
+menu.setVisible(true);
+this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Si tu diseño original (Source 10) tiene este método, consérvalo.
     // Si no, puedes omitirlo.
@@ -604,6 +632,7 @@ public class VentanaProducto extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> cmbCategoria;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -617,7 +646,6 @@ public class VentanaProducto extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblStock;
-    private javax.swing.JButton menuPrincipal;
     private javax.swing.JTable tblProductos;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtId;

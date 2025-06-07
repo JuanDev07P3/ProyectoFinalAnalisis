@@ -47,6 +47,7 @@ public class CompraService {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("POST");
         conn.setRequestProperty("Content-Type", "application/json");
+        conn.setRequestProperty("Authorization", "Bearer " + TokenAPI.getToken()); 
         conn.setDoOutput(true);
 
         JSONObject jsonCompra = compraToJson(compra);
@@ -85,6 +86,7 @@ public class CompraService {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("PUT");
         conn.setRequestProperty("Content-Type", "application/json");
+        conn.setRequestProperty("Authorization", "Bearer " + TokenAPI.getToken()); 
         conn.setDoOutput(true);
 
         JSONObject jsonCompra = compraToJson(compra);
@@ -115,6 +117,7 @@ public class CompraService {
         URL url = new URL(BASE_URL + "/" + id);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("DELETE");
+        conn.setRequestProperty("Authorization", "Bearer " + TokenAPI.getToken()); 
 
         int responseCode = conn.getResponseCode();
 
@@ -139,6 +142,7 @@ public class CompraService {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setRequestProperty("Accept", "application/json");
+        conn.setRequestProperty("Authorization", "Bearer " + TokenAPI.getToken()); 
 
         int responseCode = conn.getResponseCode();
 

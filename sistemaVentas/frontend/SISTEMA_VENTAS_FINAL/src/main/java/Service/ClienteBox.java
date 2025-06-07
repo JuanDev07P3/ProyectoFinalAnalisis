@@ -26,6 +26,7 @@ public class ClienteBox {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setRequestProperty("Accept", "application/json");
+                    conn.setRequestProperty("Authorization", "Bearer " + TokenAPI.getToken());
 
         if (conn.getResponseCode() != 200) {
             throw new RuntimeException("Error HTTP: " + conn.getResponseCode());

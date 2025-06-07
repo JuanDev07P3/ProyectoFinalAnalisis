@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "BackendVentas.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "BackendVentas.Controllers.AuthController\u002BLoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BackendVentas.Controllers.CategoriasController",
     "Method": "Get",
     "RelativePath": "api/Categorias",
@@ -475,7 +491,7 @@
   },
   {
     "ContainingType": "BackendVentas.Controllers.UsuariosController",
-    "Method": "GetById",
+    "Method": "Get",
     "RelativePath": "api/Usuarios/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -521,6 +537,22 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendVentas.Controllers.UsuariosController",
+    "Method": "Login",
+    "RelativePath": "api/Usuarios/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "BackendVentas.Models.Login",
         "IsRequired": true
       }
     ],

@@ -2,9 +2,9 @@ package Formularios; // O el nombre de tu paquete
 
 // Imports de Java Swing y otros necesarios
 
-import Models.CATEGORIA;
+import Models.Categoria;
 import Models.Producto;
-import Service.CATEGORIAservice;
+import Service.Categoriaervice;
 import Service.LowStockRenderer;
 import Service.ProductoService;
 import javax.swing.JOptionPane;
@@ -24,7 +24,7 @@ public class VentanaProducto extends javax.swing.JFrame {
     // private List<Object[]> listaDeProductos; // Eliminado - Los datos vendrán de la API
     // private int idActualParaSimulacion;    // Eliminado - El ID lo maneja el backend
 
-    private CATEGORIAservice categoriaService;
+    private Categoriaervice categoriaService;
     private ProductoService productoService;     // Añadido para el servicio de productos
 
     // Logger
@@ -39,7 +39,7 @@ public class VentanaProducto extends javax.swing.JFrame {
         this.setTitle("Gestion de Productos (Conectado a API)");
 
         // Inicialización de los servicios
-        this.categoriaService = new CATEGORIAservice();
+        this.categoriaService = new Categoriaervice();
         this.productoService = new ProductoService(); // Inicializar el servicio de Productos
 
         // Configuración inicial
@@ -89,9 +89,9 @@ private void configurarModeloDeTabla() {
         if (cmbCategoria == null) { logger.severe("cmbCategoria es null en cargarCategoriasDesdeAPI"); return; }
         cmbCategoria.removeAllItems();
         try {
-            List<CATEGORIA> categorias = categoriaService.obtenerTodasLasCategorias();
+            List<Categoria> categorias = categoriaService.obtenerTodasLasCategorias();
             if (categorias != null && !categorias.isEmpty()) {
-                for (CATEGORIA cat : categorias) {
+                for (Categoria cat : categorias) {
                     cmbCategoria.addItem(cat.toString()); // Usa Categoria.toString() -> "ID:Nombre"
                 }
             } else {

@@ -145,7 +145,7 @@
                                   <Component id="txtIdCompra" min="-2" pref="71" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="txtFecha" min="-2" pref="240" max="-2" attributes="0"/>
-                                      <Component id="txtNomCliente" pref="347" max="32767" attributes="0"/>
+                                      <Component id="txtNomCliente" pref="348" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>

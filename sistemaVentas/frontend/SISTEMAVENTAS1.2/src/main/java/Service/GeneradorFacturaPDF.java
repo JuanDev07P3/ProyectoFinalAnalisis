@@ -31,6 +31,7 @@ public class GeneradorFacturaPDF {
                 contentStream.setFont(PDType1Font.HELVETICA_BOLD, 24);
                 contentStream.newLineAtOffset(220, 780); // Centrado aproximado
                 contentStream.showText("FACTURA DE COMPRA");
+                
                 contentStream.endText();
 
                 // --- 2. DATOS DE LA EMPRESA Y FACTURA (alineados a la izquierda y derecha) ---
