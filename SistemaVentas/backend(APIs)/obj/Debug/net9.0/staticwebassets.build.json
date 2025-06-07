@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "xMGrZJDcYn2+BQATTmEsgkqP2f6v4GeKRgQiAuYuimw=",
+  "Source": "BackendVentas",
+  "BasePath": "_content/BackendVentas",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
