@@ -1,0 +1,166 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\mario\\music\\proyectofinal_completo\\backend(apis)\\controllers\\usuarioscontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:controllers\\usuarioscontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\mario\\music\\proyectofinal_completo\\backend(apis)\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\mario\\music\\proyectofinal_completo\\backend(apis)\\controllers\\productoscontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:controllers\\productoscontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\mario\\music\\proyectofinal_completo\\backend(apis)\\controllers\\detallecompracontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:controllers\\detallecompracontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\mario\\music\\proyectofinal_completo\\backend(apis)\\controllers\\comprascontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:controllers\\comprascontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\mario\\music\\proyectofinal_completo\\backend(apis)\\controllers\\clientescontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:controllers\\clientescontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\mario\\music\\proyectofinal_completo\\backend(apis)\\controllers\\categoriascontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:controllers\\categoriascontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\mario\\music\\proyectofinal_completo\\backend(apis)\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|c:\\users\\mario\\music\\proyectofinal_completo\\backend(apis)\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF9F53C0-FAED-0912-C9D9-1A6C19A1A006}|BackendVentas.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-07T17:40:47.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuariosControllers.cs",
+              "DocumentMoniker": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\UsuariosControllers.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsuariosControllers.cs",
+              "ToolTip": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\UsuariosControllers.cs",
+              "RelativeToolTip": "Controllers\\UsuariosControllers.cs",
+              "ViewState": "AgIAAOIAAAAAAAAAAADwv/IAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T22:21:42.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductosControllers.cs",
+              "DocumentMoniker": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\ProductosControllers.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductosControllers.cs",
+              "ToolTip": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\ProductosControllers.cs",
+              "RelativeToolTip": "Controllers\\ProductosControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T22:21:28.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DetalleCompraControllers.cs",
+              "DocumentMoniker": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\DetalleCompraControllers.cs",
+              "RelativeDocumentMoniker": "Controllers\\DetalleCompraControllers.cs",
+              "ToolTip": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\DetalleCompraControllers.cs",
+              "RelativeToolTip": "Controllers\\DetalleCompraControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T22:21:14.44Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ComprasControllers.cs",
+              "DocumentMoniker": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\ComprasControllers.cs",
+              "RelativeDocumentMoniker": "Controllers\\ComprasControllers.cs",
+              "ToolTip": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\ComprasControllers.cs",
+              "RelativeToolTip": "Controllers\\ComprasControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T22:20:59.096Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CategoriasControllers.cs",
+              "DocumentMoniker": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\CategoriasControllers.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoriasControllers.cs",
+              "ToolTip": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\CategoriasControllers.cs",
+              "RelativeToolTip": "Controllers\\CategoriasControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T22:20:38.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ClientesControllers.cs",
+              "DocumentMoniker": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\ClientesControllers.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClientesControllers.cs",
+              "ToolTip": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\ClientesControllers.cs",
+              "RelativeToolTip": "Controllers\\ClientesControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T21:15:22.35Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T20:59:25.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Mario\\Music\\PROYECTOFINAL_COMPLETO\\backend(APIs)\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T20:57:38.85Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
